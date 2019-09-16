@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta name="author" content="brianjlabelle.yahoo.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="HTML5 Template Onepage Labelle" />
+    <meta name="description" content="Mission to Mars | Web Scraping" />
+
+    <!-- Title  -->
+    <title>Mission to Mars | Web Scraping</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>
+
+body {
+    background-image: url("{{ mars_instance.jpl_image_absolute }}") ;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+.dataframe {
+  width: 100%;
+  color: #777;
+  font-size:12px;
+  border:0;
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  text-align: center;
+
+}
+
+
+</style>
+  
+
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg fixed-top navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a href="index_weather.html" class="navbar-brand">Mission to Mars : Web Scraping Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="nav navbar-nav navbar-right">
+          <div class="collapse navbar-collapse" id="navbarResponsive">            
+</div>
+              <li class="nav-item"><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest Mars Data!</a></li>
+
+       
+         </ul>
+
+        </div>
+      </div>
+
+
+<!-- Start Background Video -->
+<video class="bg-vid" poster="" autoplay="" loop="" muted=""> <source src="" type="video/mp4"></video>
+<!-- End Background Video  -->
+<div class="container">
+    <div class="bs-docs-section">
+      <div class="row">
+        <div class="col-lg-8">
+        <div class="card border-primary" >
+            <div class="card-header"><h1>Latest Mars News: </h1></div>
+            <div class="card-body">
+              <p class="card-text"><h3> {{ mars_instance.news_title }}</h3>{{ mars_instance.news_paragraph }} </p>
+              <hr class="my-4">
+              <div class="row">
+                  <div class="col-lg-6">
+                  <div class="card">
+                  <h3><strong>Mars Facts:</strong></h3>
+                    {{ mars_instance.df_mars_space_facts_output | safe}}
+                
+
+                    
+                </div></div>
+              
+                <div class="col-lg-6">
+                    <div class="card">
+                    <h3><strong>Latest Mars Weather:</strong></h3>
+              
+                    {{ mars_instance.weather_tweet | safe }}</div></div>
+              
+              </div>
+
+
+            </div></div></div>
+
+            <div class="col"> 
+                <div class="card border-primary" >
+                  <div class="card-header"><h3>Mars Hemispheres</h3></div>
+                  <div class="card-body">
+      
+        
+         <div class="row">
+            <div class="col-sm-3 col-md-6" style="text-align: center"><br>
+              <div><a href="temperature_vs_latitude.html"><b>{{ mars_instance.USGS_images[0].title }}</b><br>
+                <img src="{{ mars_instance.USGS_images[0].link }}" width="75%" height="75%" alt="{{ mars_instance.USGS_images[0].title }}"/></a><br><br></div>
+            </div>
+            <div class="col-sm-3 col-md-6" style="text-align: center"><br>
+              <div><a href="humidity_vs_latitude.html"><b>{{ mars_instance.USGS_images[2].title }}</b><br>
+                <img src="{{ mars_instance.USGS_images[1].link }}" width="75%" height="75%" alt="{{ mars_instance.USGS_images[0].title }}"/></a><br><br></div>
+            </div>
+            <div class="col-sm-3 col-md-6" style="text-align: center"><br>
+              <div><a href="cloudiness_vs_latitude.html"><b>{{ mars_instance.USGS_images[2].title }}</b><br>
+                <img src="{{ mars_instance.USGS_images[2].link }}" width="75%" height="75%" alt="{{ mars_instance.USGS_images[0].title }}"/></a><br><br></div>
+            </div>
+            <div class="col-sm-3 col-md-6" style="text-align: center"><br>
+              <div><a href="cloudiness_vs_latitude.html"><b>{{ mars_instance.USGS_images[3].title }}</b><br>
+                <img src="{{ mars_instance.USGS_images[3].link }}" width="75%" height="75%" alt="{{ mars_instance.USGS_images[0].title }}"/></a><br><br></div>
+            </div>
+          </div>
+                    
+      
+          <br><br>
+                   
+                  </div>
+                </div>
+                </div></div>
+      
+      
+      
+             <br>
+  </div>
+      
+              <footer id="footer" class="card border-primary" >
+          <div class="row">
+            <div class="col-lg-12"><br>
+              <ul class="list-unstyled">
+                <li>  &copy;  Copyright 2019. All Rights Reserved. <a href="https://bootswatch.com/spacelab/" target="_blank" title="Latitude Analysis Dashboard"> Bootswatch Spacelab Template</a></li>
+
+              </ul>
+  
+              </div>
+            </div>
+          </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+
+</html>
